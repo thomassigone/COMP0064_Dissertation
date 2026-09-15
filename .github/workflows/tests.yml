@@ -1,0 +1,31 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  clean-clone:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android-vulnerability-agent
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            android-vulnerability-agent/requirements.lock
+            android-vulnerability-agent/requirements-test.lock
+      - name: Install locked dependencies
+        run: python -m pip install -r requirements.lock -r requirements-test.lock
+      - name: Check dependency consistency
+        run: python -m pip check
+      - name: Run canonical clean-clone suite
+        run: python -m pytest -q

@@ -2,7 +2,7 @@
 
 ## Scope and authority
 
-This report documents a local release candidate for the evidence cited directly by the dissertation. The authority is Stage U Amendment-002 under the T.4.1 frozen configuration. Nothing in the complete private `android-vulnerability-agent/.artifacts/stage_u/amendment_002/` tree was edited, regenerated, committed, pushed, or published.
+This report documents version 1.0.0 of the public evidence release supporting the dissertation. The authority is Stage U Amendment-002 under the T.4.1 frozen configuration. Nothing in the complete private `android-vulnerability-agent/.artifacts/stage_u/amendment_002/` tree was edited, regenerated, committed, pushed, or published.
 
 ## Selected public evidence
 
@@ -35,7 +35,7 @@ Complete Jadx workspaces, APKs, resources, device setup/teardown files, unrelate
 
 ## Redactions and privacy
 
-No redaction was required, so all 18 frozen trace records remain byte-identical to their originals. A fresh scan of the complete release candidate found no API credential, authorization header, bearer token, private-key marker, local absolute path, personal account identifier, APK, or binary. `diagnostics@startup.com` and `attacker@example.com` were the only email-shaped values and were retained as controlled evidence-bearing benchmark/input literals, not personal contact details. Provider/profile protocol metadata embedded in an attempt result was retained to preserve the original record and help interpret the action path; no separate raw provider request was added.
+No redaction was required, so all 18 frozen trace records remain byte-identical to their originals. A fresh scan of the complete release found no API credential, authorization header, bearer token, private-key marker, local absolute path, personal account identifier, APK, or binary. `diagnostics@startup.com` and `attacker@example.com` were the only email-shaped values and were retained as controlled evidence-bearing benchmark/input literals, not personal contact details. Provider/profile protocol metadata embedded in an attempt result was retained to preserve the original record and help interpret the action path; no separate raw provider request was added.
 
 The attempt results embed bounded decompiled source and manifest extracts of varying length, including complete bounded class-file reads of up to 141 lines. `THIRD_PARTY_NOTICES.md` now maps each embedded extract to its source project and frozen revision. The five Ghera trace records are covered by the preserved BSD 3-Clause notice from Kansas State University at revision `ea1dbe234e4d3433161a3b85e96648913a36e83c`. The FDROID-20 extracts are from MotionLock 1.3 (22), revision `68a746fb592d94401d5cffcf711680050357a4df`, licensed AGPL-3.0-or-later. Revision-specific upstream URLs and verbatim licence copies are included.
 
@@ -58,9 +58,9 @@ Direct raw-array extraction also reproduced five Stage P static signals in each 
 - Staging directory: `dissertation-evidence-v1/`
 - Archive: `dist/dissertation-evidence-v1.zip`
 - Released files: 30 total; `MANIFEST.sha256` covers the other 29.
-- Uncompressed file bytes: 960,085 bytes; allocated directory size: approximately 1,004 KiB.
-- Compressed archive: 166,427 bytes; allocated size: approximately 164 KiB.
-- Local release-candidate archive SHA-256: `b21aed03154a3e37ca273d449d05683e3507e78eac1ee6f5f894a2ac8840cca7`.
+- Uncompressed file bytes: 960,127 bytes; allocated directory size: approximately 1,004 KiB.
+- Compressed archive: 166,408 bytes; allocated size: approximately 164 KiB.
+- Published archive SHA-256: `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`.
 - Archive integrity: `unzip -t` passed; extraction succeeded; the extracted manifest passed in full.
 - Navigation: all six bundle-relative locators resolve to the required three files.
 - Structure: no symlinks and no absolute or parent-traversal archive entries were found.
@@ -71,31 +71,31 @@ The private raw tree still has the Appendix I inventory values of 283,248 files 
 
 ## Proposed dissertation-reference replacements
 
-These are proposed edits only; the dissertation source was not changed.
+These replacements were applied only to the local dissertation source and remain outside the public repository commit.
 
 ### Chapter 5, Section 5.5, FDROID-20 source note
 
 Replace the raw-run-only locator with:
 
-> Public evidence bundle `<RELEASE_URL>` (tag `<RELEASE_TAG>`, archive SHA-256 `<ARCHIVE_SHA256>`), `traces/e3-fdroid-20/attempt-result.json`; frozen run `run-83d147bd6d5bb91778a2a65a`. The application's security ground truth remains `UNKNOWN` and manual status `UNADJUDICATED`.
+> Public evidence bundle `https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0` (tag `evidence-v1.0.0`, archive SHA-256 `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`), `traces/e3-fdroid-20/attempt-result.json`; frozen run `run-83d147bd6d5bb91778a2a65a`. The application's security ground truth remains `UNKNOWN` and manual status `UNADJUDICATED`.
 
 ### Chapter 5, Section 5.6 and Table 5.4 source
 
 Replace “raw E4 attempts” in the source text with:
 
-> Public evidence bundle `audits/e4-attempt-summary.csv` and `audits/e4-attempt-summary.json`, generated by `audits/build-e4-summary.py` from the private raw E4 records and reconciled to the frozen final-report run table. The bundle is available at `<RELEASE_URL>` (tag `<RELEASE_TAG>`, archive SHA-256 `<ARCHIVE_SHA256>`).
+> Public evidence bundle `audits/e4-attempt-summary.csv` and `audits/e4-attempt-summary.json`, generated by `audits/build-e4-summary.py` from the private raw E4 records and reconciled to the frozen final-report run table. The bundle is available at `https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0` (tag `evidence-v1.0.0`, archive SHA-256 `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`).
 
 ### Chapter 5, Section 5.7 trace-locator sentence
 
 Replace the last locator sentence before the SQLite discussion with:
 
-> Appendix H maps the representative cases to their frozen run IDs and bundle-relative paths. The selected request, terminal-manifest and attempt-result records are independently inspectable in the minimal public evidence bundle at `<RELEASE_URL>` (tag `<RELEASE_TAG>`, archive SHA-256 `<ARCHIVE_SHA256>`).
+> Appendix H maps the representative cases to their frozen run IDs and bundle-relative paths. The selected request, terminal-manifest and attempt-result records are independently inspectable in the minimal public evidence bundle at `https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0` (tag `evidence-v1.0.0`, archive SHA-256 `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`).
 
 ### Appendix H path block
 
 Replace the `.artifacts/.../RUN-ID/...` construction block and following locator sentence with:
 
-> In the minimal public evidence bundle, `RUN_LOCATORS.csv` maps each dissertation-facing case and frozen run ID to a stable bundle-relative trace directory. Each directory contains `request.json`, `run-manifest.json` and `attempt-result.json`. The bundle is available at `<RELEASE_URL>` (tag `<RELEASE_TAG>`, archive SHA-256 `<ARCHIVE_SHA256>`).
+> In the minimal public evidence bundle, `RUN_LOCATORS.csv` maps each dissertation-facing case and frozen run ID to a stable bundle-relative trace directory. Each directory contains `request.json`, `run-manifest.json` and `attempt-result.json`. The bundle is available at `https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0` (tag `evidence-v1.0.0`, archive SHA-256 `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`).
 
 Replace Appendix H's final availability sentence with:
 
@@ -105,7 +105,7 @@ Replace Appendix H's final availability sentence with:
 
 Retain the existing code-repository paragraph, then replace the raw-tree availability paragraph with:
 
-> A minimal public evidence bundle containing the six directly cited traces and a deterministic 48-attempt E4 audit extract is available at `<RELEASE_URL>` (tag `<RELEASE_TAG>`, archive SHA-256 `<ARCHIVE_SHA256>`). It is intentionally not the complete raw archive. The approximately 3.55-GB raw Amendment-002 attempt tree remains separately preserved and private; access for examination or institutional preservation is handled independently of the public release.
+> A minimal public evidence bundle containing the six directly cited traces and a deterministic 48-attempt E4 audit extract is available at `https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0` (tag `evidence-v1.0.0`, archive SHA-256 `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`). It is intentionally not the complete raw archive. The approximately 3.55-GB raw Amendment-002 attempt tree remains separately preserved and private; access for examination or institutional preservation is handled independently of the public release.
 
 Add after Table I.2:
 
@@ -117,10 +117,10 @@ Add after Table I.2:
 2. The E4 summary can be audited as released, but regenerating it requires private access to all 48 E4 attempt records plus the tracked matching final-report files.
 3. The preserved full-tree digest could not be independently reproduced from the prose algorithm because the original path-base/canonicalisation command is absent. File count, byte count, source mtimes, selected-file equality, and all 256 request/result manifest checks remain independently inspectable, but this digest limitation should be resolved before claiming a fresh full-tree hash verification.
 
-## Release placeholders
+## Published release
 
-- GitHub Release URL: `<RELEASE_URL>`
-- Release tag: `<RELEASE_TAG>`
-- Published archive SHA-256: `<ARCHIVE_SHA256>`
+- GitHub Release URL: `https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0`
+- Release tag: `evidence-v1.0.0`
+- Published archive SHA-256: `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`
 
-The complete raw archive remains private and is not included in this release candidate.
+The complete raw archive remains private and is not included in this release.

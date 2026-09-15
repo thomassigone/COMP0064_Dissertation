@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, cite this repository and the accompanying dissertation."
+title: "Agentic Vulnerability Finder for Android Applications"
+type: software
+authors:
+  - family-names: Sigone
+    given-names: Thomas Louis
+    affiliation: University College London
+version: "1.0.0"
+date-released: 2026-09-15
+repository-code: "https://github.com/thomassigone/COMP0064_Dissertation"
+license: MIT
+abstract: >-
+  Research software for bounded APK-grounded Android vulnerability discovery
+  and restricted evidence-backed validation, developed for the COMP0064 MSc
+  Information Security dissertation at University College London.

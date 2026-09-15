@@ -74,14 +74,19 @@ cd COMP0064_Dissertation/android-vulnerability-agent
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.lock
+python -m pip install -r requirements-test.lock
 python -m pip check
 ```
 
-A focused provider- and device-free Stage Q contract check is:
+The canonical provider-, device- and credential-free clean-clone test command is:
 
 ```bash
-python -m unittest discover -s tests -p 'test_stage_q_validation.py' -v
+python -m pytest -q
 ```
+
+Pytest executes the repository's `unittest.TestCase` classes and all 42 pytest-style functions in one run. Tests marked `external_evidence` require downloaded APK datasets or private `.artifacts` records and must skip when their prerequisites are absent. Run that class separately, after acquiring and hash-verifying the APKs identified by the frozen Ghera and F-Droid manifests, with `python -m pytest -q -m external_evidence`. The default clean-clone suite does not require the private raw evidence tree.
+
+From the repository root, `python3 scripts/validate_repository.py` checks tracked JSON and internal Markdown links. It preserves an exact allowlist for seven immutable post-freeze console captures that contain literal multiline output, and reports links to omitted APKs or private `.artifacts` separately from genuine broken repository links.
 
 See the detailed [subproject README](android-vulnerability-agent/README.md) and design documents below for pipeline and evaluation commands.
 
@@ -92,6 +97,10 @@ The authoritative experiment is the T.4.1 / Stage U Amendment-002 evaluation. It
 The final case-level progression was **60 documented targets → 28 matched by discovery → 2 assigned `VALIDATED` by the frozen evaluator**; conditional validation among discovered target cases was 2/28. The two outcomes are evaluator decisions, not independently reproduced exploits, and the preserved traces do not directly establish every claimed effect-level observation. `INCONCLUSIVE` and `UNSUPPORTED` outcomes are not negative vulnerability findings.
 
 The repository preserves pinned benchmark manifests, APK hashes and provenance where applicable, versioned configuration, frozen plans, scoring/evaluator records, tests, finding/run tables and machine-readable final reports. Saved observations support audit or replay with the matching evaluator version. They do not guarantee identical future model responses, identical emulator timing or state, or reproduction of a security effect absent from the original trace.
+
+## Public evidence release
+
+The [minimal public dissertation evidence v1.0.0](https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0) contains six representative frozen trace closures and a deterministic 48-attempt E4 audit extract. Its ZIP SHA-256 is `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`; `RUN_LOCATORS.csv` inside the archive maps the dissertation examples to stable bundle paths. This compact release is separate from the private approximately 3.55-GB Amendment-002 raw archive.
 
 ## Dataset and artifact boundary
 
@@ -104,6 +113,10 @@ Third-party APKs need not be redistributed in the submitted Git archive. The rep
 The project targets Android application-layer weaknesses under an ordinary, unprivileged application-layer attacker model. Evaluation used a controlled emulator and synthetic or benchmark applications. Root/kernel/platform compromise, custom-ROM attacks, physical access and hardware side channels are outside scope. Do not use the tooling against third-party systems without authorisation.
 
 Bounded decompilation and search can miss relevant evidence; discovery is stochastic; available capabilities limit what can be tested; and generic evaluator predicates do not provide an effect-specific oracle for every claim. Results are specific to the frozen corpus, device and provider configuration, while F-Droid security ground truth remains unadjudicated.
+
+## Licensing and citation
+
+Original project software is provided under the [MIT License](LICENSE). [Third-party notices](THIRD_PARTY_NOTICES.md) identify the separate terms covering Ghera, MotionLock, benchmark material, embedded source excerpts, dependencies and build tooling; third-party evidence is not blanket-relicensed. Repository citation metadata is provided in [CITATION.cff](CITATION.cff).
 
 ## Documentation
 

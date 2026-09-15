@@ -9,14 +9,14 @@
 
 ## Repository state
 
-This documentation pass began on branch `main` at HEAD `92667e842f0eee70068cfceee6559c6d2596e99d`, the report-bearing editorial commit identified by the final dissertation evidence baseline. The working tree already contained the untracked local `dissertation/` directory, which is not part of this documentation commit. This manifest and the revised `README.md` form a documentation-only commit on top of that report-bearing identity. A plain Git archive contains them when that documentation commit is selected as the archive commit.
+The final public submission state is the commit identified by annotated tag `submission-2026-09-15` on branch `main`. The local dissertation source and generated delivery files remain outside the public commit. A plain Git archive of the submission tag therefore contains the tracked software, documentation and retained repository evidence, but not ignored or untracked local material.
 
 The historically distinct identities remain:
 
 - T.4.1 implementation baseline: `a40311432736c0a96de6e05bdb4faed7dab91376`, recorded by [`final-freeze-t4.1.json`](android-vulnerability-agent/evaluation/evidence/stage_t/final-freeze-t4.1.json).
 - Amendment-002 execution commit: `25a3f790ff2c85c248c4f62832d39a231978753c`.
 - Report-bearing editorial commit and documentation-pass base: `92667e842f0eee70068cfceee6559c6d2596e99d`.
-- Final result and freeze identities: the [Amendment-002 freeze](android-vulnerability-agent/evaluation/evidence/stage_u/amendment-002/final-freeze-v5.json), [execution binding](android-vulnerability-agent/evaluation/evidence/stage_u/amendment-002/execution-binding.json) and [artifact manifest](android-vulnerability-agent/evaluation/evidence/stage_u/amendment-002/final-report/artifact-manifest.json). These records preserve the applicable hashes and must not be replaced by the current HEAD identity.
+- Final result and freeze identities: the [Amendment-002 freeze](android-vulnerability-agent/evaluation/evidence/stage_u/amendment-002/final-freeze-v5.json), [execution binding](android-vulnerability-agent/evaluation/evidence/stage_u/amendment-002/execution-binding.json) and [artifact manifest](android-vulnerability-agent/evaluation/evidence/stage_u/amendment-002/final-report/artifact-manifest.json). These records preserve the applicable hashes and are not replaced by the submission-tag identity.
 
 ## Tracked code and artifact material
 
@@ -30,7 +30,7 @@ A Git archive of the selected submission commit contains only files tracked by t
 - evaluation runners, versioned provider/configuration records and frozen plans;
 - retained machine-readable results, finding/run tables and final-report summaries;
 - design, implementation and evaluation documentation; and
-- Python dependencies pinned in [`android-vulnerability-agent/requirements.lock`](android-vulnerability-agent/requirements.lock).
+- Python runtime dependencies pinned in [`android-vulnerability-agent/requirements.lock`](android-vulnerability-agent/requirements.lock), with the verified pytest version separately pinned in [`requirements-test.lock`](android-vulnerability-agent/requirements-test.lock).
 
 No APK binary is tracked at the inspected HEAD. Publicly available third-party datasets and APKs are not unnecessarily redistributed. The repository instead preserves the applicable identities, versions, hashes, labels, manifests and acquisition information required to identify evaluated artifacts. Ghera provenance is recorded in the [frozen Ghera manifest](android-vulnerability-agent/evaluation/evidence/stage_t/ghera-manifest.json) and related [benchmark provenance](android-vulnerability-agent/benchmarks/stage_r/ghera/); F-Droid identities and acquisition provenance are recorded in the [frozen F-Droid manifest](android-vulnerability-agent/evaluation/evidence/stage_t/fdroid-manifest.json) and [Stage L corpus records](android-vulnerability-agent/benchmarks/stage_l/). The F-Droid sample has `UNKNOWN` security ground truth and `UNADJUDICATED` manual status; it is not a labelled vulnerability dataset.
 
@@ -40,7 +40,9 @@ No APK binary is tracked at the inspected HEAD. Publicly available third-party d
 
 This ignored tree contains the raw attempt material referenced by Appendix H. It is **not** included in the public GitHub repository or in a plain `git archive`. The tracked repository contains the final-report summaries and retained repository evidence under [`evaluation/evidence/stage_u/amendment-002/`](android-vulnerability-agent/evaluation/evidence/stage_u/amendment-002/), but those files do not make Appendix H's `.artifacts/...` trace paths retrievable from GitHub alone.
 
-The delivery decision is therefore explicit: determine whether the UCL submission should include the final Amendment-002 raw subtree as a separate archive. Do not silently add the complete 15 GB local `.artifacts/` tree to the primary code archive.
+The evidence-delivery boundary is resolved as follows: the public submission exposes the compact [minimal public dissertation evidence v1.0.0](https://github.com/thomassigone/COMP0064_Dissertation/releases/tag/evidence-v1.0.0), whose ZIP SHA-256 is `1e17fa3f79d2ddb2d77d1fac281483693328289d80622abcbaf4903248fdde3a`. Its `RUN_LOCATORS.csv` makes the six dissertation-facing trace closures inspectable, and its E4 extract covers all 48 logical attempts used for the mode comparison.
+
+The complete approximately 3.55-GB Amendment-002 raw subtree remains separately preserved and private. It is not silently added to Git, the code archive or the public release; controlled examination or institutional preservation of that private archive is handled separately. Historical `.artifacts/...` paths in frozen reports remain immutable private-artifact locators rather than broken public-repository links.
 
 ## Reproduction boundary
 

@@ -7,3 +7,5 @@ secrets/
 credentials/
 *.credentials
 *openai*dump*
+/dist/
+/dissertation-evidence-v1/
